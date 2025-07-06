@@ -11,3 +11,6 @@ venv/
 .env/
 oci-venv
 oci-venv/
+
+#Metadata
+*metadata

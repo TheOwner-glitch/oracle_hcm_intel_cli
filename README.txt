@@ -38,6 +38,14 @@ A professional-grade, Python-based command-line assistant that leverages Oracle 
 
 ---
 
+---
+
+## 🤖 Example Metadata Included
+
+The Metadata_Samples folder contains sample table and views metadata, you will need complete metadata to be passed to the LLM. Your actual metadata files will go in the file structure as seen in that section below.
+
+---
+
 ## ⚙️ Setup
 
 ### 1. 📁 Clone the Project & Install Dependencies

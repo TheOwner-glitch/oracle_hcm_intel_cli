@@ -1,0 +1,62 @@
+[
+  {
+    "view_name": "FAI_DEEP_LINKS_VL",
+    "url": "https://docs.oracle.com/en/cloud/saas/human-resources/oedmh/faideeplinksvl-3906.html",
+    "description": "",
+    "details": "Schema: FUSION Object owner: FAI Object type: VIEW",
+    "columns": [
+      {
+        "column_name": "DEEP_LINK_ID"
+      },
+      {
+        "column_name": "DEEP_LINK_CODE"
+      },
+      {
+        "column_name": "USAGE_TYPE"
+      },
+      {
+        "column_name": "DESTINATION_URL"
+      },
+      {
+        "column_name": "DEEP_LINK_PROPERTIES"
+      },
+      {
+        "column_name": "FAMILY"
+      },
+      {
+        "column_name": "PRODUCT"
+      },
+      {
+        "column_name": "CREATED_BY"
+      },
+      {
+        "column_name": "CREATION_DATE"
+      },
+      {
+        "column_name": "LAST_UPDATED_BY"
+      },
+      {
+        "column_name": "LAST_UPDATE_DATE"
+      },
+      {
+        "column_name": "LAST_UPDATE_LOGIN"
+      },
+      {
+        "column_name": "OBJECT_VERSION_NUMBER"
+      },
+      {
+        "column_name": "MODULE_ID"
+      },
+      {
+        "column_name": "NAME"
+      },
+      {
+        "column_name": "DESCRIPTION"
+      },
+      {
+        "column_name": "MESSAGE"
+      }
+    ],
+    "sql_query": "SELECT\nb.DEEP_LINK_ID DEEP_LINK_ID,\nb.DEEP_LINK_CODE DEEP_LINK_CODE,\nb.USAGE_TYPE USAGE_TYPE,\nb.DESTINATION_URL DESTINATION_URL,\nb.DEEP_LINK_PROPERTIES DEEP_LINK_PROPERTIES,\nb.FAMILY FAMILY,\nb.PRODUCT PRODUCT,\nb.CREATED_BY CREATED_BY,\nb.CREATION_DATE CREATION_DATE,\nb.LAST_UPDATED_BY LAST_UPDATED_BY,\nb.LAST_UPDATE_DATE LAST_UPDATE_DATE,\nb.LAST_UPDATE_LOGIN LAST_UPDATE_LOGIN,\nb.OBJECT_VERSION_NUMBER OBJECT_VERSION_NUMBER,\nb.MODULE_ID MODULE_ID,\ntl.NAME NAME,\ntl.DESCRIPTION DESCRIPTION,\ntl.MESSAGE MESSAGE\nFROM\nFAI_DEEP_LINKS_B b,\nFAI_DEEP_LINKS_TL tl\nWHERE\nb.DEEP_LINK_ID = tl.DEEP_LINK_ID AND tl.LANGUAGE = USERENV('LANG')"
+  }
+]

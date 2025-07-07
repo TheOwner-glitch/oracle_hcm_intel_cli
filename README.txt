@@ -6,18 +6,23 @@ A professional-grade, Python-based command-line assistant that leverages Oracle 
 
 ## 🔍 Features
 
-| Capability                    | Description                                                                 |
-|------------------------------|-----------------------------------------------------------------------------|
-| `--prompt`                   | Ask natural-language questions or give instructions to the assistant        |
-| `--bip-template`             | Generate an Oracle BI Publisher-ready SQL template based on user intent     |
-| `--provider openai|oci`      | Choose between OpenAI API or Oracle OCI GenAI (Cohere)                      |
-| `--context`                  | Filter metadata using keywords (e.g. "payroll", "onboarding")              |
-| `--list-tables`              | Print all available table names                                             |
-| `--list-views`               | Print all available view names                                              |
-| `--markdown`                 | Wraps output in a Markdown code block (`​```​`)                             |
-| `--output filename.txt`      | Save AI response to file instead of printing                                |
-| **Interactive Mode**         | If no arguments are passed, launches a guided prompt for less technical users |
-| **Encrypted .env**           | Secure environment configuration with encryption key prompt at runtime      |
+| Capability                    | Description                                                                                          |
+|------------------------------|------------------------------------------------------------------------------------------------------|
+| `--prompt`                   | Ask natural-language questions or give instructions to the assistant                                |
+| `--bip-template`             | Generate an Oracle BI Publisher-ready SQL template based on user intent                             |
+| `--provider openai|oci`      | Choose between OpenAI API or Oracle OCI GenAI (Cohere)                                               |
+| `--context`                  | Filter metadata using keywords (e.g. "payroll", "onboarding"), allows comma-separated values         |
+| `--use-tables`               | Include only table metadata in the AI prompt                                                         |
+| `--use-views`                | Include only view metadata in the AI prompt                                                          |
+| `--audit`                    | Enable audit mode to log metadata sent to the AI (saved under `Logs/`)                               |
+| `--list-tables`              | Print all available table names                                                                      |
+| `--list-views`               | Print all available view names                                                                       |
+| `--markdown`                 | Wraps output in a Markdown code block (`​```​`)                                                       |
+| `--output filename.txt`      | Save AI response to file instead of printing                                                         |
+| **Interactive Mode**         | If no arguments are passed, launches a guided prompt for less technical users                        |
+|                              | Includes repeat operations without exiting and an option to quit gracefully                          |
+|                              | Also includes audit logging option during each interaction                                           |
+| **Encrypted .env**           | Secure environment configuration with encryption key prompt at runtime                              |
 
 ---
 
@@ -89,6 +94,12 @@ python oracle_hcm_intel_cli.py --prompt "Generate a payroll summary report" --bi
 python oracle_hcm_intel_cli.py --prompt "List views related to onboarding" --context onboarding --output context.txt
 ```
 
+### Limit Prompt to Views Only
+
+```bash
+python oracle_hcm_intel_cli.py --prompt "Query for view columns related to absences" --use-views --output only_views.txt
+```
+
 ### Use Oracle GenAI (Cohere)
 
 ```bash
@@ -101,11 +112,20 @@ python oracle_hcm_intel_cli.py --prompt "Generate a salary report" --context sal
 python oracle_hcm_intel_cli.py --prompt "Get person ID and full name" --output result.txt --markdown
 ```
 
+### Enable Audit Mode (Log Metadata)
+
+```bash
+python oracle_hcm_intel_cli.py --prompt "List tables for payroll" --output result.txt --audit
+```
+
 ### Launch Interactive Mode (No Flags)
 
 ```bash
 python oracle_hcm_intel_cli.py
 ```
+
+> 🔁 Interactive mode allows multiple operations without restarting. Exit anytime using the `Exit` option in the menu.  
+> 🕵️ Audit logging can be toggled interactively for each query.
 
 ---
 

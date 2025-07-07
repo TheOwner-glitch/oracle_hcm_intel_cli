@@ -1,5 +1,5 @@
 {
-    "max_tokens": 600,
+    "max_tokens": 288000,
     "frequency_penalty": 0,
     "top_p": 0.75,
     "top_k": 0

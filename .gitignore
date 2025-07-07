@@ -13,4 +13,9 @@ oci-venv
 oci-venv/
 
 #Metadata
-*metadata
+tables_metadata*
+views_metadata*
+
+#Misc
+Output/
+Logs/

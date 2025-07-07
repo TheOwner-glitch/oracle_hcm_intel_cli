@@ -6,23 +6,23 @@ A professional-grade, Python-based command-line assistant that leverages Oracle 
 
 ## 🔍 Features
 
-| Capability                    | Description                                                                                          |
-|------------------------------|------------------------------------------------------------------------------------------------------|
-| `--prompt`                   | Ask natural-language questions or give instructions to the assistant                                |
-| `--bip-template`             | Generate an Oracle BI Publisher-ready SQL template based on user intent                             |
-| `--provider openai|oci`      | Choose between OpenAI API or Oracle OCI GenAI (Cohere)                                               |
-| `--context`                  | Filter metadata using keywords (e.g. "payroll", "onboarding"), allows comma-separated values         |
-| `--use-tables`               | Include only table metadata in the AI prompt                                                         |
-| `--use-views`                | Include only view metadata in the AI prompt                                                          |
-| `--audit`                    | Enable audit mode to log metadata sent to the AI (saved under `Logs/`)                               |
-| `--list-tables`              | Print all available table names                                                                      |
-| `--list-views`               | Print all available view names                                                                       |
-| `--markdown`                 | Wraps output in a Markdown code block (`​```​`)                                                       |
-| `--output filename.txt`      | Save AI response to file instead of printing                                                         |
-| **Interactive Mode**         | If no arguments are passed, launches a guided prompt for less technical users                        |
-|                              | Includes repeat operations without exiting and an option to quit gracefully                          |
-|                              | Also includes audit logging option during each interaction                                           |
-| **Encrypted .env**           | Secure environment configuration with encryption key prompt at runtime                              |
+| Capability                   | Description                                                                                           |
+|------------------------------|-------------------------------------------------------------------------------------------------------|
+| `--prompt`                   | Ask natural-language questions or give instructions to the assistant                                  |
+| `--bip-template`             | Generate an Oracle BI Publisher-ready SQL template based on user intent                               |
+| `--provider openai|oci`      | Choose between OpenAI API or Oracle OCI GenAI (Cohere)                                                |
+| `--context`                  | Filter metadata using keywords (e.g. "payroll", "onboarding"), allows comma-separated values          | 
+| `--use-tables`               | Include only table metadata in the AI prompt                                                          |
+| `--use-views`                | Include only view metadata in the AI prompt                                                           |
+| `--audit`                    | Enable audit mode to log metadata sent to the AI (saved under `Logs/`)                                |
+| `--list-tables`              | Print all available table names                                                                       |
+| `--list-views`               | Print all available view names                                                                        |
+| `--markdown`                 | Wraps output in a Markdown code block (`​```​`)                                                |
+| `--output filename.txt`      | Save AI response to file instead of printing                                                          |
+| **Interactive Mode**         | If no arguments are passed, launches a guided prompt for less technical users                         |
+|                              | Includes repeat operations without exiting and an option to quit gracefully                           |
+|                              | Also includes audit logging option during each interaction                                            |
+| **Encrypted .env**           | Secure environment configuration with encryption key prompt at runtime                                | 
 
 ---
 
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 
 ### 2. 🔐 Create and Encrypt Your Environment File
 
-Create a file named `env_example.env`:
+Create a .env file using the `env_example.env` as an example:
 
 ```env
 OCI_COMPARTMENT_ID=...
@@ -84,7 +84,7 @@ You'll be prompted for an encryption key (not stored). This creates `.env.enc`.
 
 ## 🧪 Example Usage
 
-### Basic Prompt (OpenAI)
+### Basic Prompt (OpenAI or OCI)
 
 ```bash
 python oracle_hcm_intel_cli.py --prompt "Suggest joins for PER_ALL_PEOPLE_F" --output joins.txt --provider openai
@@ -133,7 +133,7 @@ python oracle_hcm_intel_cli.py
 ```
 
 > 🔁 Interactive mode allows multiple operations without restarting. Exit anytime using the `Exit` option in the menu.  
-> 🕵️ Audit logging can be toggled interactively for each query.
+> 🕵️ Audit logging can be toggled interactively for each query, filtered metadata passed to the LLM will be visible in the Logs folder.
 
 ---
 
@@ -149,6 +149,8 @@ python oracle_hcm_intel_cli.py
 | `Cohere_GenAI_Function.py` | LLM interface for Oracle GenAI (Cohere)               |
 | `config.json`              | Oracle LLM model ID and API configuration             |
 | `env_example.env`          | Template for creating your own `.env`                 |
+
+You will need to create a Logs and Output folder in the project folder as well, it is expected by the oracle_hcm_intel_cli.py
 
 ---
 
